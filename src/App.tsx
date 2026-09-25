@@ -1,13 +1,23 @@
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
 import './App.css'
-import {useSignal} from "@preact/signals-react";
+import { HomePage } from './pages'
+import { HomePageTabs } from './pages/HomePage/models.ts'
 
+const browserRouter = createBrowserRouter([
+  {
+    path: '/',
+    children: [
+      {
+        index: true,
+        element: <Navigate to='home' />
+      },
+      { path: 'home', element: <Navigate to={HomePageTabs.StateExample} /> },
+      { path: 'home/:tab', Component: HomePage }
+    ]
+  }
+])
 function App() {
-  const signal = useSignal(0);
-  return <div>
-    <h1>React Signals</h1>
-    <div>{signal.value}</div>
-    <button onClick={() => signal.value = signal.value + 1}>Click</button>
-  </div>
+  return <RouterProvider router={browserRouter}></RouterProvider>
 }
 
 export default App
