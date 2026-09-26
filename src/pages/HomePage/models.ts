@@ -3,5 +3,6 @@ export enum HomePageTabs {
   StateExample = 'state-example',
   InputsExample = 'inputs-example',
   HooksExample = 'hooks-example',
-  QueryExample = 'query-example'
+  QueryExample = 'query-example',
+  ModelExample = 'model-example'
 }

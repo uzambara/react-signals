@@ -3,6 +3,7 @@ import { HomePageTabs } from './models.ts'
 import {
   HookExampleTab,
   InputsExampleTab,
+  ModelTab,
   QueryExampleTab,
   StateExampleTab
 } from './modules'
@@ -52,6 +53,9 @@ export const HomePage = () => {
         <StyledNavLink to={`/home/${HomePageTabs.QueryExample}`}>
           Query params example
         </StyledNavLink>
+        <StyledNavLink to={`/home/${HomePageTabs.ModelExample}`}>
+          Model example
+        </StyledNavLink>
       </NavStyled>
       <TabContentStyled>
         {tab === HomePageTabs.SimpleExample && <SimpleExampleTab />}
@@ -59,6 +63,7 @@ export const HomePage = () => {
         {tab === HomePageTabs.HooksExample && <HookExampleTab />}
         {tab === HomePageTabs.InputsExample && <InputsExampleTab />}
         {tab === HomePageTabs.QueryExample && <QueryExampleTab />}
+        {tab === HomePageTabs.ModelExample && <ModelTab />}
       </TabContentStyled>
     </>
   )
