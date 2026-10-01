@@ -5,7 +5,7 @@ import {
   InputsExampleTab,
   ModelTab,
   QueryExampleTab,
-  StateExampleTab
+  SignalInClassExampleTab
 } from './modules'
 import styled from 'styled-components'
 import { SimpleExampleTab } from './modules'
@@ -41,11 +41,14 @@ export const HomePage = () => {
         <StyledNavLink to={`/home/${HomePageTabs.SimpleExample}`}>
           Simple example
         </StyledNavLink>
-        <StyledNavLink to={`/home/${HomePageTabs.StateExample}`}>
-          State example
-        </StyledNavLink>
         <StyledNavLink to={`/home/${HomePageTabs.HooksExample}`}>
           Hooks example
+        </StyledNavLink>
+        <StyledNavLink to={`/home/${HomePageTabs.SignalInClassExampleTab}`}>
+          Signals in class example
+        </StyledNavLink>
+        <StyledNavLink to={`/home/${HomePageTabs.ModelExample}`}>
+          Model example
         </StyledNavLink>
         <StyledNavLink to={`/home/${HomePageTabs.InputsExample}`}>
           Inputs example
@@ -53,17 +56,16 @@ export const HomePage = () => {
         <StyledNavLink to={`/home/${HomePageTabs.QueryExample}`}>
           Query params example
         </StyledNavLink>
-        <StyledNavLink to={`/home/${HomePageTabs.ModelExample}`}>
-          Model example
-        </StyledNavLink>
       </NavStyled>
       <TabContentStyled>
         {tab === HomePageTabs.SimpleExample && <SimpleExampleTab />}
-        {tab === HomePageTabs.StateExample && <StateExampleTab />}
         {tab === HomePageTabs.HooksExample && <HookExampleTab />}
+        {tab === HomePageTabs.SignalInClassExampleTab && (
+          <SignalInClassExampleTab />
+        )}
+        {tab === HomePageTabs.ModelExample && <ModelTab />}
         {tab === HomePageTabs.InputsExample && <InputsExampleTab />}
         {tab === HomePageTabs.QueryExample && <QueryExampleTab />}
-        {tab === HomePageTabs.ModelExample && <ModelTab />}
       </TabContentStyled>
     </>
   )

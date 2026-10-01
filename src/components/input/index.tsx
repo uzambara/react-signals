@@ -1,8 +1,8 @@
-import type { IChangeModel } from '../../state'
 import { Input as MaterialInput } from '@mui/material'
+import type { Signal } from '@preact/signals-react'
 
 export interface Props {
-  value: IChangeModel<string>
+  value: Signal<string>
 }
 
 export const Input = (props: Props) => {
@@ -10,7 +10,7 @@ export const Input = (props: Props) => {
   return (
     <MaterialInput
       value={value.value}
-      onChange={ev => value.onChange(ev.target.value)}
+      onChange={ev => (value.value = ev.target.value)}
     />
   )
 }

@@ -11,7 +11,7 @@ const browserRouter = createBrowserRouter([
         index: true,
         element: <Navigate to='home' />
       },
-      { path: 'home', element: <Navigate to={HomePageTabs.StateExample} /> },
+      { path: 'home', element: <Navigate to={HomePageTabs.SimpleExample} /> },
       { path: 'home/:tab', Component: HomePage }
     ]
   }

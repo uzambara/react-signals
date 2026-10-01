@@ -15,9 +15,4 @@ export class ChangeModel<TValue> implements IChangeModel<TValue> {
   public get value() {
     return this._value.value
   }
-
-  init(value: TValue): void {
-    console.log('init', value)
-    this._value.value = value
-  }
 }

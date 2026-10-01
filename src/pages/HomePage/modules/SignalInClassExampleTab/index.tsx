@@ -1,7 +1,8 @@
 import { StateExampleTabStateProvider, useStateExampleTabState } from './state'
 import { Button } from '../../../../components/button'
 
-const StateExampleTabComponent = () => {
+const SignalInClassExampleTabComponent = () => {
+  //достаем из контекста все данные и методы, которые нужны
   const { incrementValue, value, square } = useStateExampleTabState()
   return (
     <div>
@@ -12,8 +13,8 @@ const StateExampleTabComponent = () => {
   )
 }
 
-export const StateExampleTab = () => (
+export const SignalInClassExampleTab = () => (
   <StateExampleTabStateProvider>
-    <StateExampleTabComponent />
+    <SignalInClassExampleTabComponent />
   </StateExampleTabStateProvider>
 )

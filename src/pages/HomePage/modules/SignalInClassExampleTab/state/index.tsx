@@ -6,7 +6,9 @@ import {
   useState
 } from 'react'
 
+// Объявляем класс, который содержит данные и методы
 class StateExampleTabState {
+  // сигналы можно объявлять вне компонентов
   private _value = signal<number>(0)
 
   public incrementValue = () => {
@@ -17,15 +19,17 @@ class StateExampleTabState {
     return this._value.value
   })
 
+  // вычислять данные тоже можно вне компонента
   public square = computed(() => {
-    return this._value.value * this.value.value
+    return this._value.value * this._value.value
   })
 }
 
+// Создаем контекст для нашего стейта
 export const StateExampleTabStateContext = createContext<StateExampleTabState>(
   null!
 )
-
+//Создаем провайдер для контекста
 export const StateExampleTabStateProvider = ({
   children
 }: PropsWithChildren) => {
@@ -37,6 +41,7 @@ export const StateExampleTabStateProvider = ({
     </StateExampleTabStateContext.Provider>
   )
 }
-
+//Для удобства создаем хук для доступа к нашему стейту, можно разделить на разные хуки
+//например данные и методы
 export const useStateExampleTabState = () =>
   useContext(StateExampleTabStateContext)

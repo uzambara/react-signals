@@ -1,4 +1,4 @@
-export * from './StateExampleTab'
+export * from './SignalInClassExampleTab'
 export * from './InputsExampleTab'
 export * from './HooksExampleTab'
 export * from './SimpleExampleTab'
