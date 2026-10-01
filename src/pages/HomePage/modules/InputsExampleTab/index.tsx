@@ -1,12 +1,7 @@
 import { Input } from '../../../../components'
 import styled from 'styled-components'
 import { Button } from '../../../../components/button'
-import { signal } from '@preact/signals-react'
-
-const state = {
-  name: signal(''),
-  password: signal('')
-}
+import { signal, useModel } from '@preact/signals-react'
 
 const Container = styled.div`
   width: fit-content;
@@ -14,13 +9,21 @@ const Container = styled.div`
   flex-direction: column;
   gap: 5px;
 `
+// пример использования сигналов с инпутами
 export const InputsExampleTab = () => {
+  // Создаем модель с полями формы
+  const form = useModel(() => ({
+    name: signal(''),
+    password: signal('')
+  }))
+
   return (
     <Container>
-      <Input value={state.name} />
-      <div>Name: {state.name.value}</div>
-      <Input value={state.password} />
-      <div>Password: {state.password.value}</div>
+      {/*Передаем сигнал прямо в инпут*/}
+      <Input value={form.name} />
+      <div>Name: {form.name}</div>
+      <Input value={form.password} />
+      <div>Password: {form.password}</div>
       <Button onClick={() => undefined}>Mock</Button>
     </Container>
   )

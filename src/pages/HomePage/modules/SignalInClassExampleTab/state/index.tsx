@@ -7,7 +7,7 @@ import {
 } from 'react'
 
 // Объявляем класс, который содержит данные и методы
-class StateExampleTabState {
+export class StateExampleTabState {
   // сигналы можно объявлять вне компонентов
   private _value = signal<number>(0)
 
@@ -25,11 +25,11 @@ class StateExampleTabState {
   })
 }
 
-// Создаем контекст для нашего стейта
+// Стейт будет передавать в компоненты через контекст.
 export const StateExampleTabStateContext = createContext<StateExampleTabState>(
   null!
 )
-//Создаем провайдер для контекста
+// Создаем провайдер для контекста
 export const StateExampleTabStateProvider = ({
   children
 }: PropsWithChildren) => {
@@ -41,7 +41,7 @@ export const StateExampleTabStateProvider = ({
     </StateExampleTabStateContext.Provider>
   )
 }
-//Для удобства создаем хук для доступа к нашему стейту, можно разделить на разные хуки
-//например данные и методы
+// Для удобства создаем хук для доступа к нашему стейту, можно разделить на разные хуки
+// например данные и методы
 export const useStateExampleTabState = () =>
   useContext(StateExampleTabStateContext)

@@ -1,6 +1,7 @@
 import { useComputed, useSignal, useSignalEffect } from '@preact/signals-react'
 import { Button } from '../../../../components/button'
 
+// пример с использованием сигналов через хуки
 export const HookExampleTab = () => {
   // почти тот же useState, только на максималках
   const value = useSignal(0)
@@ -11,9 +12,9 @@ export const HookExampleTab = () => {
   const square = useComputed(() => value.value * value.value)
 
   // сайд эффект
-  //так же не нужно помнить о зависимостях
+  // так же не нужно помнить о зависимостях
   useSignalEffect(() => {
-    // This effect will automatically re-run whenever count.value changes
+    //Эффект запускается каждый раз, когда значение value изменяется
     console.log(`The value is now: ${value.value}`)
 
     // Можно вернуть функцию, которая выполнится до следующего выполнения эффекта
@@ -25,6 +26,7 @@ export const HookExampleTab = () => {
 
   return (
     <div>
+      {/* !!!При выводе значения указываем сам сигнал, а не его геттер '.value' */}
       <div>Value is: {value}</div>
       <div>Square is: {square}</div>
       <Button onClick={() => value.value++}>Increment</Button>

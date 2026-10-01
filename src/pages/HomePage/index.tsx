@@ -4,7 +4,6 @@ import {
   HookExampleTab,
   InputsExampleTab,
   ModelTab,
-  QueryExampleTab,
   SignalInClassExampleTab
 } from './modules'
 import styled from 'styled-components'
@@ -53,9 +52,6 @@ export const HomePage = () => {
         <StyledNavLink to={`/home/${HomePageTabs.InputsExample}`}>
           Inputs example
         </StyledNavLink>
-        <StyledNavLink to={`/home/${HomePageTabs.QueryExample}`}>
-          Query params example
-        </StyledNavLink>
       </NavStyled>
       <TabContentStyled>
         {tab === HomePageTabs.SimpleExample && <SimpleExampleTab />}
@@ -65,7 +61,6 @@ export const HomePage = () => {
         )}
         {tab === HomePageTabs.ModelExample && <ModelTab />}
         {tab === HomePageTabs.InputsExample && <InputsExampleTab />}
-        {tab === HomePageTabs.QueryExample && <QueryExampleTab />}
       </TabContentStyled>
     </>
   )

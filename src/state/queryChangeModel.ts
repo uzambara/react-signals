@@ -1,7 +1,6 @@
 import type { SetURLSearchParams } from 'react-router'
-import type { IChangeModel } from './abstractions.ts'
 
-export class QueryChangeModel<TValue> implements IChangeModel<TValue> {
+export class QueryChangeModel<TValue> {
   private readonly _key: string
   private readonly _urlSearchParams: URLSearchParams
   private readonly _setUrlSearchParams: SetURLSearchParams
