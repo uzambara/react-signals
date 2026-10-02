@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
 import './App.css'
-import { HomePage } from './pages'
+import { ExamplePage, HomePage } from './pages'
 import { HomePageTabs } from './pages/HomePage/models.ts'
 
 const browserRouter = createBrowserRouter([
@@ -12,7 +12,8 @@ const browserRouter = createBrowserRouter([
         element: <Navigate to='home' />
       },
       { path: 'home', element: <Navigate to={HomePageTabs.SimpleExample} /> },
-      { path: 'home/:tab', Component: HomePage }
+      { path: 'home/:tab', Component: HomePage },
+      { path: 'example', Component: ExamplePage }
     ]
   }
 ])

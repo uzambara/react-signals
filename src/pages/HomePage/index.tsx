@@ -52,6 +52,7 @@ export const HomePage = () => {
         <StyledNavLink to={`/home/${HomePageTabs.InputsExample}`}>
           Inputs example
         </StyledNavLink>
+        <StyledNavLink to='/example'>Example</StyledNavLink>
       </NavStyled>
       <TabContentStyled>
         {tab === HomePageTabs.SimpleExample && <SimpleExampleTab />}
