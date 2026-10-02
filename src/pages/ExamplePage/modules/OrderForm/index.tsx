@@ -10,16 +10,19 @@ interface OrderFormProps {
   onCancel: () => void
 }
 
+// Модель для хранения значения инпута
 class ChangeModel {
   private _value = signal('')
 
   public value() {
     return this._value.value
   }
+
   public onChange = (ev: ChangeEvent<HTMLInputElement>) =>
     (this._value.value = ev.target.value)
 }
 
+// Компонент с формой заявки
 export const OrderForm = ({ onSubmit, onCancel }: OrderFormProps) => {
   const form = useModel(() => ({
     fullName: new ChangeModel(),
