@@ -8,6 +8,7 @@ const Container = styled.div`
   flex-direction: column;
   row-gap: 20px;
 `
+
 // После написания своего велосипеда нашел, что в @preact/signals-react есть Model
 export const ModelTab = () => {
   // При помощи useModel добавляем ее в компонент.

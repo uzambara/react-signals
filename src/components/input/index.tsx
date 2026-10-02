@@ -9,7 +9,7 @@ export const Input = (props: Props) => {
   const { value } = props
   return (
     <MaterialInput
-      value={value}
+      value={value.value}
       onChange={ev => (value.value = ev.target.value)}
     />
   )

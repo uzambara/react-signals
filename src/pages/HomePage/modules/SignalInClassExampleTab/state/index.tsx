@@ -25,7 +25,7 @@ export class StateExampleTabState {
   })
 }
 
-// Стейт будет передавать в компоненты через контекст.
+// Стейт будем передавать в компоненты через контекст.
 export const StateExampleTabStateContext = createContext<StateExampleTabState>(
   null!
 )
