@@ -16,9 +16,13 @@ const EmptyState = styled.p`
 const columns = ['ФИО', 'Адрес', 'Телефон', 'Email', 'Комментарий', '']
 
 export const OrderTable = () => {
-  const { orders, removeOrder } = useOrdersPageState()
+  const { filteredOrders, orders, removeOrder } = useOrdersPageState()
   if (orders.value.length === 0) {
     return <EmptyState>Заявок пока нет</EmptyState>
+  }
+
+  if (filteredOrders.value.length === 0) {
+    return <EmptyState>Заявок удовлетворяющих фильтру нет</EmptyState>
   }
 
   return (
@@ -31,7 +35,7 @@ export const OrderTable = () => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {orders.value.map(order => (
+        {filteredOrders.value.map(order => (
           <TableRow key={order.id}>
             <TableCell>{order.fullName}</TableCell>
             <TableCell>{order.address}</TableCell>

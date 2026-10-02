@@ -1,4 +1,4 @@
-import { signal } from '@preact/signals-react'
+import { computed, signal } from '@preact/signals-react'
 import type { Order } from '../types'
 import {
   createContext,
@@ -25,6 +25,8 @@ export class OrdersState {
   // Признак, что форма создания открыта
   public readonly isFormOpen = signal(false)
 
+  public readonly search = signal('')
+
   // Открыть форму
   public openModal = () => (this.isFormOpen.value = true)
   // Закрыть форму
@@ -35,6 +37,20 @@ export class OrdersState {
     this.orders.value = [...this.orders.value, order]
     this.persist()
   }
+
+  public filteredOrders = computed(() => {
+    if (!this.search.value) return this.orders.value
+
+    const searchNormalized = this.search.value.toLocaleLowerCase()
+    return this.orders.value.filter(
+      order =>
+        order.fullName.toLocaleLowerCase().includes(searchNormalized) ||
+        order.address.toLocaleLowerCase().includes(searchNormalized) ||
+        order.phone.toLocaleLowerCase().includes(searchNormalized) ||
+        order.email.toLocaleLowerCase().includes(searchNormalized) ||
+        order.comment.toLocaleLowerCase().includes(searchNormalized)
+    )
+  })
 
   // Удалить заявку
   public removeOrder = (id: string): void => {

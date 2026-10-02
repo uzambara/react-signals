@@ -4,11 +4,13 @@ import { OrderTable } from './modules/OrderTable'
 import { OrdersPageProvider, useOrdersPageState } from './state'
 import type { Order } from './types'
 import { BackLink, Container, Header } from './styled.ts'
+import { TextField } from '@mui/material'
 
 // Страница с Заявками
 const ExamplePageComponent = () => {
   // Достаем данные и методы из стейта
-  const { isFormOpen, openModal, closeModal, addOrder } = useOrdersPageState()
+  const { isFormOpen, openModal, closeModal, addOrder, search } =
+    useOrdersPageState()
 
   const handleSubmit = (order: Order) => {
     addOrder(order)
@@ -22,6 +24,11 @@ const ExamplePageComponent = () => {
         <h2>Заявки</h2>
         <Button onClick={openModal}>Добавить</Button>
       </Header>
+      <TextField
+        label='Поиск'
+        value={search}
+        onChange={ev => (search.value = ev.target.value)}
+      />
       {isFormOpen.value && (
         <OrderForm onSubmit={handleSubmit} onCancel={closeModal} />
       )}
